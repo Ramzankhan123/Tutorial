@@ -1,0 +1,93 @@
+
+JavaScript is single thread 
+
+Q1) output this question ?
+
+for(var i = 0;i<10;i++){
+    setTimeout(function(){
+      console.log(i)
+    },1000)
+   }
+
+answer => 10 times 10 print due to time out 
+Q2) product(5,4) // 20
+    product(5)(4) // how can you write function ?
+
+answer => 
+ function product(x){
+   return function(y){
+     return x*y
+   }
+ }    
+
+ Q3) hosting in JavaScript ?
+ answer-> the process whereby the interpreter appears to move the declaration of functions, 
+ variables or classes to the top of their scope, prior to execution of the code
+
+ Q4) clouser in JavaScript ?
+ clouser basically , A function bind together with it's laxical enviournment create clouser
+ -> function along with laxical scope forms a clouser, that known as clouser
+ -> A closure is the combination of a function bundled together (enclosed) with references to 
+ its surrounding state (the lexical environment). In other words, a closure gives you access to an 
+ outer function's scope from an inner function. In JavaScript, closures are created every time a function 
+ is created, at function creation time.
+
+ example -> 
+
+ function x(){
+    let a = 10
+    function y(){
+      console.log(a)
+    }
+    y()
+ }
+ x() // output will be 10
+
+example 2 ->
+function init(){
+  var name = 'ajay'
+  function display(){
+    name = 'viyay'
+    console.log("inner",name)
+  }
+   console.log("Outer",name)
+  display() 
+}
+init() 
+// output will be
+"inner" vijay
+"outer" ajay
+
+ Q5) output based
+ 
+console.log("Script start")
+setTimeout(function(){
+console.log("set timeout");
+},0);
+Promise.resolve().then(function(){
+  console.log("Promise1");
+}).then(function(){
+  console.log("Promise2")
+})
+console.log("Script end")
+
+=====output will be => 
+Script start
+Script end
+Promise1
+Promise2
+set timeout
+
+
+Q6 ) Prop drilling?
+-> Prop drilling is the unofficial term for passing data through several nested children components, 
+in a bid to deliver this data to a deeply-nested component.
+-> Prop drilling is basically a situation when the same data is being sent at almost every level due 
+to requirements in the final level.
+
+Q7 : High order component in react with example ?
+
+
+
+
+
