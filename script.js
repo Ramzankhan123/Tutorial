@@ -55,7 +55,6 @@
 
 
 // 3. output based questions on Event loop
-
 ///https://www.jsv9000.app/
 // console.log('a')
 // setTimeout(()=> console.log("set") ,0) /// added into task queue 
@@ -121,7 +120,7 @@
 
 //<-------------ALGORITHEM AND DATA STRUCTURE --------------------->//
 
-// FIND THE LEAST ELEMENT IN ARRAY IN 0 INDEX
+//Q1) FIND THE LEAST ELEMENT IN ARRAY IN 0 INDEX
 //[4,2,1,3,5]  <--- min number
 //[1,2,3,4,5] -> a[0] - > 1 first approach
 // step 1 : first element treated as small element
@@ -147,7 +146,7 @@
 // console.log("min value",checkMinNum([4,2,1,3,5]))
 
 
-// SECOND APPROACH
+// SECOND APPROACH PART 2
 //[4,2,1,3,5] < --- arrange all elements in accending order
 // step 1 : Check IF first element is grater then second element 
 // 4 > 2 ---> swap element here
@@ -181,8 +180,8 @@
 //     }
 // }
 // console.log("min value>>>>",findMinElement([4,2,1,3,5]))
-
-//counting frequency in both arrays
+//**************************************************************** */
+//Q2) counting frequency in both arrays
 //[1,2,3,4] ===> [1,4,9,16]
 
 // function checkIfSquareExist(arr1, arr2) {
@@ -203,7 +202,7 @@
 // }
 // console.log("is square exist",checkIfSquareExist([1,2,3],[1,4,16]))
 
-
+// PART 2
 // counting frequency 
 // [1,2,4,2] ===>>  [1,4,4,16]
 // {1 : 1,2 : 2,4: 1}
@@ -232,11 +231,10 @@
 // }
 // let result =checkFrequency([1, 2, 4, 2], [1, 4, 4, 16])
 // console.log(">>>",result)
-
-
+//**************************************************************** */
 
 //Anagrams 
-//Q) 'hello' ---> 'olleh',
+//Q 3) 'hello' ---> 'olleh',
 // step 1 : first we check frequency of word in first array
 // step 2 : check every element of second array to element of fitst arrrray
 //         if element match then reduce count value 
@@ -264,7 +262,9 @@
 // }
 //
 // console.log("##", isAnagram('hello', 'llloeh'))
-//****** checking pair of number sun is zero ******/
+
+//**************************************************************** */
+// Q4V****** checking pair of number sun is zero ******/
 // input -> [-5,-4,-3,-2,0,2,4,6,8]
 // output -> [-4,4]
 //
@@ -279,7 +279,7 @@
 // }
 // console.log("pair of number >>",getSumZeroPair([-5,-4,-3,-2,0,2,4,6,8]))
 //
-//----------optimum solution for find pair of number
+//----------optimum solution for find pair of number PART 2
 // function getSumZeroPair(arry) {
 //     let left = 0
 //     let right = arry.length - 1
@@ -295,9 +295,9 @@
 //     }
 // }
 // console.log("pair of number >>", getSumZeroPair([-5, -4, -3, -2, 0, 2, 3, 6, 8]))
-
+//**************************************************************** */
 //counting unique numbers
-//Q)  [1,1,2,2,3,4,4,5,6,7,8,8]
+//Q 5)  [1,1,2,2,3,4,4,5,6,7,8,8]
 // i j
 // algo
 // step 1 ) assign i to 0 index and j to 1 index
@@ -323,8 +323,8 @@
 
 // console.log("pair of number >>", sortArray([1, 1, 2, 2, 3, 4, 4, 5, 6, 7, 8, 8]))
 
-
-// count largest sum of consecutive digits
+//**************************************************************** */
+//Q6) count largest sum of consecutive digits
 // [1,2,3,4,3,5,4,6,7,8] 4
 // array length 10 and total pair 7
 // forrmula 10 -4 + 1 = 7
@@ -349,6 +349,7 @@
 // let result = findLargSun([1, 2, 3, 4, 3, 5, 4, 6, 7, 8], 4)
 // console.log("result >", result)
 // complexity =  (On^2)
+// PART 2
 //-------------lenear complexity logic
 // function findLargSum(array, sum) {
 //     let maxSum = 0;
@@ -370,9 +371,42 @@
 // const result = findLargSum([1, 2, 3, 4, 3, 5, 4, 6, 7, 8],4)
 // console.log("result", result)
 
+//**************************************************************** */
+//Q7) [1,2,3,4,5,6,7,8,9,10,11,12,13,14]
+// find index number in sorted array 
+// find index of 5
+// aanswer should be 4
+
+//##### Part 1######
+//if i use for loop and compaire nuber to giver number
+//then i am using for loop
+// then complexity of -> liner O(n)
+//###### Part 2#####
+// devide and conquerer technique (binary seach)
+// time complexity -> binary O(log(n))
+// note -> jitna time ek element ka liya lgega utna complete algo ko legega that'y better than linear time complexity 
+
+//step 1) find middle Element [1,2,3,4,5,6,7,8,9,10,11,12,13,14] ===>  8
+//step 2) devide array if element samll [1,2,3,4,5,6,7]
+//step 3) again step 1 fine middle elememt of [1,2,3,4,5,6,7] --> 4
+// step4 ) repeat step 1 & 2
+// function searchNumber(array,num){
+//     let min = 0;
+//     let max = array.length -1
+//     while(min <= max){
+//         let middleIndex = Math.floor((min + max)/2)
+//         if(array[middleIndex]<num){
+//             min = middleIndex + 1
+//         }else if(array[middleIndex]>num){
+//             max = middleIndex - 1
+//         }else{
+//             return middleIndex
+//         }
+//     }
+//     return -1
+// }
+// console.log(">>>>>>>>>>",searchNumber([1,2,3,4,5,6,7,8,9,10,11,12,13,14],11))
 
 
-
-
-
-
+//**************************************************************** */
+// %%%%%%%%%%%%% New Topic Recursion %%%%%%%%%%
