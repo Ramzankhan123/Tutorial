@@ -1,0 +1,70 @@
+1. UI Part  
+2. constructor in class
+
+
+*****************Example 1 : **********************
+class Person{
+  late String name;
+  late int age;
+  Person({String inputName ='',int age = 0}){
+    name = inputName;
+    this.age = age;
+  }
+}
+double addNumber(double num1,double num2){
+   return num1 + num2;
+}
+
+void main() {
+  var p1 = Person(inputName :  "Max222",age : 11);
+  var p2 = Person(inputName : "Menu222",age : 19);
+  print(p1.name);
+  print(p2.name);
+
+}
+
+*****************Example 2 : **********************
+
+class Person{
+  late String name = '';
+  late int age = 0;
+  Person({this.name = '',this.age = 10});
+}
+double addNumber(double num1,double num2){
+   return num1 + num2;
+}
+void main() {
+  var p1 = Person(name : "Max99",age : 11);
+  var p2 = Person(name : "Menu88",age : 19);
+  print(p1.name);
+  print(p1.age);
+  print(p2.name);
+  print(p2.age);
+}
+
+*****************Example 3 : **********************
+
+Object override
+dart:core
+Annotation on an instance members which override an interface member.
+-->Annotations have no effect on the meaning of a Dart program. This annotation is 
+recognized by the Dart analyzer, and it allows the analyzer to provide hints or warnings for 
+some potential problems of an otherwise valid program. As such, the meaning of this annotation 
+is defined by the Dart analyzer.
+-->The @override annotation expresses the intent that a declaration should override an interface method, 
+   something which is not visible from the declaration itself. This extra information allows the analyzer to provide 
+   a warning when that intent is not satisfied, where a member is intended to override a superclass member or implement 
+   an interface member, but fails to do so. Such a situation can arise if a member name is mistyped, or if the superclass 
+   renames the member.
+-->The @override annotation applies to instance methods, instance getters, instance setters and instance variables (fields). 
+   When applied to an instance variable, it means that the variable's implicit getter and setter (if any) are marked as overriding. 
+   It has no effect on the variable itself.
+
+
+Official Docs: https://flutter.dev/docs
+
+Widget Catalog: https://flutter.dev/docs/development/ui/widgets
+
+Dart Docs: https://dart.dev/guides/language/language-tour
+
+"Introduction to Widgets" - Official Docs: https://flutter.dev/docs/development/ui/widgets-intro
