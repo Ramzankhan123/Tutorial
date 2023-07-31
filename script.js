@@ -410,3 +410,240 @@
 
 //**************************************************************** */
 // %%%%%%%%%%%%% New Topic Recursion %%%%%%%%%%
+
+// case-a. N = 9
+//    1001 => output will be 2 because binary gap 2 between 1
+// case-b. N = 529
+//    100001002 => output will be 4 because maximum binary gap 4
+// case-c. if [1,1,1,1] => output will be 0
+//       [0,0,0,0] => output will be 0     
+
+// function PairOfSumZero(a){
+//     let binary = (a>>>0).toString(2)
+//     let i = 0;
+//     let j = 1;
+//     let d=0
+//     while(j<binary.length){
+//         if(binary[i]===binary[j]){
+//             let sum = j-i-1 
+//             if(sum > 0 && sum > d ){
+//                 d=sum 
+//             }
+//             i = j
+//             sum =0
+//         }
+//         j+=1
+        
+//     }
+//     return d
+// }
+// console.log(">>>",PairOfSumZero(529))
+
+//**************************************************************** */
+// Question => Rotate an array to the right by a given number of steps in javascript 
+// 
+// function rotateArrayRight(arr, steps) {
+//     if (!Array.isArray(arr) || arr.length === 0 || steps <= 0) {
+//       return arr; // No need to rotate an empty array or with 0 steps
+//     }
+//     steps = steps % arr.length; // Ensure steps is within the array lengt
+//     // Reverse the entire array
+//     reverseArray(arr, 0, arr.length - 1);
+//     // Reverse the first 'steps' elements
+//     reverseArray(arr, 0, steps - 1);
+//     // Reverse the remaining elements after 'steps'
+//     reverseArray(arr, steps, arr.length - 1);
+//     return arr;
+//   }
+  
+//   function reverseArray(arr, start, end) {
+//     while (start < end) {
+//       const temp = arr[start];
+//       arr[start] = arr[end];
+//       arr[end] = temp;
+//       start++;
+//       end--;
+//     }
+//   }
+  
+//   // Test the function
+//   const array = [1, 2, 3, 4, 5];
+//   const stepsToRotate = 2;
+//   const rotatedArray = rotateArrayRight(array, stepsToRotate);
+//   console.log(rotatedArray); // Output: [4, 5, 1, 2, 3]
+/// ***************************************************************************
+/*
+ [1,2,1,2,3] => A[0] : A[2] , A[1] : A[3]
+             => A[4] unpair
+Step 1 : Itterare array from there length 
+step 2 : find pair and store t,
+step3  : return unpaired element
+
+*/
+
+// function findPair(A){
+//     let par = new Map()
+    
+//     for(let i of A){
+//       // console.log("i",i)
+//        if(par.has(i)){
+//            par.set(i,par.get(i)+1)
+//        }else{
+//          par.set(i,1)
+//        }
+//     }
+    
+//    let unpairedElement;
+//    for (const [key, value] of par.entries()) {
+//      if (value === 1) {
+//         unpairedElement = key;
+//         break;
+//       }
+//     }
+   
+//    return unpairedElement
+    
+// }
+// console.log("=>>>",findPair([1,2,1,2,3]))
+/// **************************************************************************************************************************************************************************************************
+/*
+--------------------Task description---------------------------------------
+A small frog wants to get to the other side of the road. The frog is currently located at position X and wants to get to a position greater than or equal to Y. The small frog always jumps a fixed distance, D
+Count the minimal number of jumps that the small frog must perform to reach its target.Write a 
+function:
+function solution(X, Y, D);
+that, given three integers X, Y and D, returns the minimal number of jumps from position X to a position equal to or greater than Y.
+For example, given:
+  X = 10
+  Y = 85
+  D = 30
+the function should return 3, because the frog will be positioned as follows:
+after the first jump, at position 10 + 30 = 40
+after the second jump, at position 10 + 30 + 30 = 70
+after the third jump, at position 10 + 30 + 30 + 30 = 100
+Write an efficient algorithm for the following assumptions:
+X, Y and D are integers within the range [1..1,000,000,000];
+X ≤ Y. 
+*/
+// Solution 1
+// function findPair(A,B,C){
+//     let count = 0
+//     let sum=A
+//     while(sum < B){
+//         sum = sum + C
+//         count+=1
+//     }
+//     return count
+// }
+// console.log("=>>>",findPair(10,85,30))
+// Solutin 2
+// function findPair(X,Y,D){
+//     let jump = parseInt((Y-X)/D) 
+//     if((Y-X)%D!== 0 && (Y-X) > D) jump++
+//     return jump
+// }
+// console.log("parir",findPair(10,85,30))
+
+/*
+****************************Task description*******************************
+An array A consisting of N different integers is given. The array contains integers in the range [1..(N + 1)], which means that exactly one element is missing.
+
+Your goal is to find that missing element.
+
+Write a function:
+function solution(A);
+that, given an array A, returns the value of the missing element.
+For example, given array A such that:
+  A[0] = 2
+  A[1] = 3
+  A[2] = 1
+  A[3] = 5
+the function should return 4, as it is the missing element
+Write an efficient algorithm for the following assumptions:
+N is an integer within the range [0..100,000];
+the elements of A are all distinct;
+each element of array A is an integer within the range [1..(N + 1)].
+*/
+
+/*. 
+
+[1,2,3,4] = sum is 10
+n * (n+1)/2
+n= array length 
+4*(4+1)/2 => 20/2 = 10
+
+step 1 : expected array length 
+step 2 : expected sum of element
+step 3 : actual sum 
+step 4 : expected - actual => element that missing
+
+*/
+
+// function FindMissEle(arr){
+//     let n = arr.length + 1
+//     let expectedsum = (n * (n + 1)/2)
+//     let realSum = arr.reduce((acc,val,i)=> acc + val,0)
+//     let missingval = expectedsum - realSum
+//     return missingval
+// }
+
+
+// console.log("result=>",FindMissEle([2,3,1,5]))
+
+/*
+Scenario 2 :  if min value and max value given then find missing value
+*/
+// Test the function
+// const array = [1, 3, 5, 9];
+// const minNum = 1;
+// const maxNum = 10;
+// const missing = findMissingElements(array, minNum, maxNum);
+
+// function findMissingElements(arr,min,max){
+//      const missingElements = [];
+//   const elementSet = new Set(arr);
+
+//   for (let i = min; i <= max; i++) {
+//     if (!elementSet.has(i)) {
+//       missingElements.push(i);
+//     }
+//   }
+
+//   return missingElements;
+// }
+
+// console.log("result=>",findMissingElements([1, 3, 5, 9],1,10))
+
+/* 
+********************************Task Description:
+A non-empty array A consisting of N integers is given. Array A represents numbers on a tape.
+Any integer P, such that 0 is less than P and P is less than N, splits this tape into two non-empty parts: A[0], A[1], ..., A[P − 1] and A[P], A[P + 1], ..., A[N − 1].
+The difference between the two parts is the value of: |(A[0] + A[1] + ... + A[P − 1]) − (A[P] + A[P + 1] + ... + A[N − 1])
+In other words, it is the absolute difference between the sum of the first part and the sum of the second part.
+For example, consider array A such that
+  A[0] = 3
+  A[1] = 1
+  A[2] = 2
+  A[3] = 4
+  A[4] = 3
+We can split this tape in four places:
+
+P = 1, difference = |3 − 10| = 7
+P = 2, difference = |4 − 9| = 5
+P = 3, difference = |6 − 7| = 1
+P = 4, difference = |10 − 3| = 7
+Write a function:
+
+class Solution { public int solution(int[] A); }
+that, given a non-empty array A of N integers, returns the minimal difference that can be achieved
+For example, given
+  A[0] = 3
+  A[1] = 1
+  A[2] = 2
+  A[3] = 4
+  A[4] = 3
+the function should return 1, as explained above
+Write an efficient algorithm for the following assumptions:
+N is an integer within the range [2..100,000];
+each element of array A is an integer within the range [−1,000..1,000].
+*/
